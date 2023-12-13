@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be95728f-49a7-4e6f-b855-3f8886c8a015" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/projet_meteo/materialize/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_meteo/src/main/css/materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_meteo/materialize/css/materialize.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_meteo/src/main/css/materialize.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_meteo/materialize/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_meteo/src/main/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_meteo/materialize/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_meteo/src/main/js/materialize.min.js" afterDir="false" />
-    </list>
+    <list default="true" id="20fe1c7c-b791-4be7-bf59-9a64eae0d5ad" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,35 +18,19 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$/projet_meteo">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="projet_meteo" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="site_de_base" />
+        <entry key="$PROJECT_DIR$" value="creationBDD" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,36 +39,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2ZRfBkOFgZYD4pUXTde9zZBu0Uz" />
+  <component name="ProjectId" id="2ZUIcr8Y8KuR4DjVDMcOYnQUHi8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b55adf8bf84316658cbd0795f4d03db2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "b55adf8bf84316658cbd0795f4d03db2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projet_meteo/src/main/js" />
-      <recent name="$PROJECT_DIR$/projet_meteo/src/main/css" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ProjetMeteoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="projet_meteo.main" />
@@ -102,29 +76,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be95728f-49a7-4e6f-b855-3f8886c8a015" name="Changes" comment="" />
-      <created>1695760796162</created>
+      <changelist id="20fe1c7c-b791-4be7-bf59-9a64eae0d5ad" name="Changes" comment="" />
+      <created>1702470314104</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1695760796162</updated>
-      <workItem from="1702389681117" duration="5333000" />
-      <workItem from="1702462482862" duration="419000" />
+      <updated>1702470314104</updated>
+      <workItem from="1702470315309" duration="1273000" />
     </task>
-    <task id="LOCAL-00001" summary="construction du site de base avec pagr d'accueil + greeting">
-      <created>1702461309078</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1702461309078</updated>
-    </task>
-    <task id="LOCAL-00002" summary="construction du site de base avec pagr d'accueil + greeting">
-      <created>1702461336230</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702461336230</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,26 +93,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="site_de_base" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="construction du site de base avec pagr d'accueil + greeting" />
-    <option name="LAST_COMMIT_MESSAGE" value="construction du site de base avec pagr d'accueil + greeting" />
   </component>
 </project>
