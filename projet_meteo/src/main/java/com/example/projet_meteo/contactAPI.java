@@ -7,26 +7,26 @@ import java.net.http.HttpResponse;
 
 
 public class contactAPI {
-      String  url= "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Lille,FR/2022-12-12?key=E52WKLYZ4466XQEJWRQK553CA&include=days&elements=humidity,windspeed,temp";
-      HttpClient httpClient= HttpClient.newHttpClient();
+    String url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Lille,FR/2022-12-12?key=E52WKLYZ4466XQEJWRQK553CA&include=days&elements=humidity,windspeed,temp";
+    HttpClient httpClient = HttpClient.newHttpClient();
 
-      HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+    public void RequesttoAPI(){
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
 
-      try {
+        try{
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-              HttpResponse <String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-              if (response.statusCode() == 200){
-                      String responsebody = response.body();
-                      System.out.println(responsebody);
-              }
-              else{
-                      System.err.println("Erreur lors de la récupération des données. Codes statut : " + response.statusCode());
-              }
-
-
-      } catch(Exception e){
-                System.err.println("Erreur lors de l'envoi de la requête : " + e.getMessage());
+            if (response.statusCode() == 200) {
+                String responsebody = response.body();
+                System.out.println(responsebody);
+            } else {
+                System.err.println("Erreur lors de la récupération des données. Codes statut : " + response.statusCode());
+            }
         }
-
+        catch(Exception e)
+        {
+            System.err.println("Erreur lors de l'envoi de la requête : " + e.getMessage());
+        }
+    }
 }
+
