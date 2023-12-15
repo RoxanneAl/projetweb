@@ -3,28 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Popup login page administrateur</title>
-    <link rel="stylesheet" href ="">
+
+
+
+    <!--<link rel="stylesheet" href ="projet_meteo/src/main/css/materialize.min.css">-->
+    <!--<script src="projet_meteo/src/js/materialise.min.js"></script>-->
+
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        a.btn{
+            margin-top:  30%;
+        }
+        input[type="submit"]{
+            width: 97%;
+            margin-top: 10px;
+
+
+        }
+    </style>
 </head>
-<body>
-    <div class="container center">
-        <a href="#login" class = "btn btn-large teal modal-trigger">login Here</a>
-    </div>
+<body class="red lighten-3">
+<div class="container center">
+    <a href="#login" id="buttonlogin" class = "btn btn-large teal modal-trigger" onclick="openForm2()">login </a>
+</div>
+<div class ="modal" id="login">
+    <h4>Login to administration</h4>
     <div class="row">
-        <form class="col 12">
+        <form action ="#">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type = "text" class = "validate">
-                    <label for="icon_prefix">Name</label>
+                    <input id="name" type="text" class = "validate">
+                    <label id="LabName" for="name">Name</label>
                 </div>
             </div>
             <div class="row">
-                <div class  ="input-field col 12">
-                    <input id ="password" type ="password" class="validate">
-                    <label for="password">Password</label>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    <input id ="password" type="password" class="validate">
+                    <label id ="LabPass" for="password">Password</label>
                 </div>
             </div>
+            <input id= "buttonLoginInPopUp"type = "submit" value="login" class="btn btn-large">
         </form>
     </div>
+</div>
+
+
+<script>
+
+
+    window.onclick = function(event) {
+    let person = prompt("Please enter your name", "Harry Potter");
+    let text;
+    if (person == null || person == "") {
+    text = "User cancelled the prompt.";
+    } else {
+    text = "Hello " + person + "! How are you today?";
+    }
+
+
+    /*    window.onclick = function (event) {
+            let modal = document.getElementById('login');
+            let buttonlogin = document.getElementById('buttonlogin');
+            let buttonLoginInPopUp = document.getElementById('buttonLoginInPopUp');
+            let password = document.getElementById('password');
+            let LabPass = document.getElementById('LabPass');
+            if (event.target != modal && event.target != buttonlogin && event.target != password && event.target != LabPass && event.target != buttonLoginInPopUp) {
+                document.getElementById("login").style.display ="none";
+                console.log("close");
+            }
+                console.log(event.target);
+        }
+
+        function openForm2(){
+             let element = document.getElementById("login");
+             if (element.style.display =="block") {
+                   document.getElementById("login").style.display = "none";
+             }else ( element.style.display ="block");
+            console.log("open");
+        }
+
+*/
+    </script>
 </body>
 </html>
