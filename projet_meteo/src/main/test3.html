@@ -94,24 +94,26 @@
   <div class="form-popup" id="popupForm">
     <form action="/action_page.php" class="form-container">
       <h2>Veuillez vous connecter</h2>
-      <label for="email">
-        <strong>E-mail</strong>
+      <label for="Nom">
+        <strong>Nom</strong>
       </label>
-      <input type="text" id="email" placeholder="Votre Email" name="email" required />
+      <input type="text" id="Nom" placeholder="Votre Nom" name="nom" required />
       <label for="psw">
         <strong>Mot de passe</strong>
       </label>
       <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required />
-      <button type="submit" class="btn">Connecter</button>
+      <button type="submit" class="btn" onclick="loginForm()">Connecter</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
 </div>
-<script>
+  <script>
       function openForm() {
         document.getElementById("popupForm").style.display = "block";
       }
-
+      function loginForm(){
+        let
+      }
       function closeForm() {
         document.getElementById("popupForm").style.display = "none";
       }
