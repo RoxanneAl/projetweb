@@ -1,4 +1,4 @@
-package com.example.projet_meteo;
+package com.meteo.projet_meteo;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

@@ -1,4 +1,4 @@
-package com.example.projet_meteo;
+package com.meteo.projet_meteo;
 
 public class useContactAPI {
     public static void main(String[] args){
