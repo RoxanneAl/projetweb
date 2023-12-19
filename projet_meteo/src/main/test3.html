@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <title>Titre du document</title>
   <style>
@@ -92,7 +92,8 @@
 </div>
 <div class="login-popup">
   <div class="form-popup" id="popupForm">
-    <form action="/action_page.php" class="form-container">
+    <!--<form th:action="@{/login}" method="post">-->
+    <form action="/action_page.php" class="form-container" >
       <h2>Veuillez vous connecter</h2>
       <label for="Nom">
         <strong>Nom</strong>
@@ -102,7 +103,7 @@
         <strong>Mot de passe</strong>
       </label>
       <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required />
-      <button type="submit" class="btn" onclick="loginForm()">Connecter</button>
+      <button type="submit" class="btn" >Connecter</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
@@ -111,10 +112,7 @@
       function openForm() {
         document.getElementById("popupForm").style.display = "block";
       }
-      function loginForm(){
-        let
-      }
-      function closeForm() {
+        function closeForm() {
         document.getElementById("popupForm").style.display = "none";
       }
     </script>
