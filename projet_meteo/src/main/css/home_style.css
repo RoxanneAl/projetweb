@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Titre du document</title>
-  <style>
       * {
         box-sizing: border-box;
       }
@@ -82,39 +77,3 @@
       .open-button:hover {
         opacity: 1;
       }
-    </style>
-</head>
-<body>
-<h2>Forme Popup</h2>
-<p>Cliquez sur le bouton "Ouvrir la forme" pour ouvrir la forme Popup.</p>
-<div class="open-btn">
-  <button class="open-button" onclick="openForm()"><strong>Ouvrir la forme</strong></button>
-</div>
-<div class="login-popup">
-  <div class="form-popup" id="popupForm">
-    <!--<form th:action="@{/login}" method="post">-->
-    <form action="/action_page.php" class="form-container" >
-      <h2>Veuillez vous connecter</h2>
-      <label for="Nom">
-        <strong>Nom</strong>
-      </label>
-      <input type="text" id="Nom" placeholder="Votre Nom" name="nom" required />
-      <label for="psw">
-        <strong>Mot de passe</strong>
-      </label>
-      <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required />
-      <button type="submit" class="btn" >Connecter</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
-    </form>
-  </div>
-</div>
-  <script>
-      function openForm() {
-        document.getElementById("popupForm").style.display = "block";
-      }
-        function closeForm() {
-        document.getElementById("popupForm").style.display = "none";
-      }
-    </script>
-</body>
-</html>

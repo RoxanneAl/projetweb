@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+  <title>Titre du document</title>
+
+  <script src="js/home_dy.js"></script>
+  <link rel="stylesheet" href="css/home_style.css">
+
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 <body>
-<h1>Welcome to the home page</h1>
-
-
+<h2>Bienvenue dans le site web meteo</h2>
+<div class="open-btn">
+  <button type="button" class="btn btn elegant" onclick="openForm()"><i class="large material-icon">account_circle</i></button>
+</div>
+<div class="login-popup">
+  <div class="form-popup" id="popupForm">
+    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+      <h2>Veuillez vous connecter</h2>
+      <label for="Nom">
+        <strong>Nom</strong>
+      </label>
+      <input type="text"  th:field="*{nom}" id="Nom" placeholder="Votre Nom" name="nom" required />
+      <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+      <label for="mdp">
+        <strong>Mot de passe</strong>
+      </label>
+      <input type="password" th:field="*{mdp}" id="mdp" placeholder="Votre Mot de passe" name="mdp" required />
+      <span th:if="${#fields.hasErrors('mdp')}" th:errors="*{mdp}"></span>
+      <button type="submit" class="btn" onclick="loginForm()">Connecter</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
