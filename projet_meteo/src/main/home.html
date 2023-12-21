@@ -16,14 +16,13 @@
 
 </head>
 <body>
-<h2>Bienvenue dans le site web meteo</h2>
 <div class="open-btn">
-  <button type="button" class="btn btn elegant" onclick="openForm()"><i class="large material-icon">account_circle</i></button>
+  <button type="button" class="btn btn elegant" onclick="openForm()"><i class="material-icons">account_circle</i></button>
 </div>
 <div class="login-popup">
   <div class="form-popup" id="popupForm">
     <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
-      <h2>Veuillez vous connecter</h2>
+      <h3>Veuillez vous connecter</h3>
       <label for="Nom">
         <strong>Nom</strong>
       </label>
