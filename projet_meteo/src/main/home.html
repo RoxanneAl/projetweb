@@ -16,9 +16,27 @@
 
 </head>
 <body>
-<div class="open-btn">
-  <button type="button" class="btn btn elegant" onclick="openForm()"><i class="material-icons">account_circle</i></button>
-</div>
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <span class="nav-title">Title</span>
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+      <i class="material-icons">add</i>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <div class="open-btn">
+        <button type="button" class="waves-effect waves-light btn-large" onclick="openForm()"><i class="material-icons">account_circle</i></button>
+      </div>
+    </ul>
+  </div>
+  <div class="nav-content">
+    <div class="input-field">
+      <input id="search" type="search" required>
+      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  </div>
+</nav>
+
 <div class="login-popup">
   <div class="form-popup" id="popupForm">
     <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
