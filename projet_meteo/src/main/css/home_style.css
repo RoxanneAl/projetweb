@@ -5,18 +5,16 @@
 body {
   font-family: Roboto, Helvetica, sans-serif;
 }
-
-
-.open-button {
-  background-color: #1c87c9;
-  color: white;
-  padding: 12px 20px;
-
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 1; /* Ajusté l'opacité */
+.nav-wrapper{
+    background-color: #1976d2;
+}
+button{
+    background-color: #82b1ff !important;
 }
 
+.open-btn{
+    padding: 14px;
+}
 
 .login-popup {
   position: relative;
@@ -35,13 +33,13 @@ body {
   padding: 10px;
   background-color: white;
 }
-
+/*
 .form-container {
   max-width: 300px;
   padding: 20px;
   background-color: #fff;
 }
-
+*/
 .form-container input[type="text"],
 .form-container input[type="password"] {
   width: 100%;
@@ -55,6 +53,10 @@ body {
 .form-container input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
+}
+
+.search{
+ position: center;
 }
 
 .form-container .btn {
