@@ -16,6 +16,7 @@ async function initMap() {
         center: { lat: 46.86, lng: 3 },
         zoom: 6.66,
     });
+
 }
 
 initMap()
