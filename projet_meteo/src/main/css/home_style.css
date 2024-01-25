@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, Helvetica, sans-serif;
+}
+.nav-wrapper{
+    background-color: #1976d2;
+}
+button{
+    background-color: #82b1ff !important;
+}
+
+.open-btn{
+    padding: 14px;
+}
+
+.login-popup {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%; /* Centré horizontalement */
+  top: 50px; /* Ajouté un décalage vers le bas */
+  transform: translateX(-50%);
+  border: 2px solid #666;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0; /* Ajusté la marge inférieure */
+  border: none;
+  background: #eee;
+}

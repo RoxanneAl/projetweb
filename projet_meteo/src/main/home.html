@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Titre du document</title>
+
+  <script src="js/home_dy.js"></script>
+  <link rel="stylesheet" href="css/home_style.css">
+
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<nav class="nav-extended" >
+  <div class="nav-wrapper">
+    <span class="nav-title">Title</span>
+    <ul class="right hide-on-med-and-down">
+      <div class="open-btn">
+        <button type="button"  class="waves-effect waves-light btn-large" onclick="openForm()"><i class="material-icons">account_circle</i></button>
+      </div>
+    </ul>
+  </div>
+</nav>
+<nav>
+  <div class="nav-wrapper">
+    <form>
+      <div class="input-field">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+</nav>
+<div class="login-popup">
+  <div class="form-popup" id="popupForm">
+    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+      <h3>Veuillez vous connecter</h3>
+      <label for="Nom">
+        <strong>Nom</strong>
+      </label>
+      <input type="text"  th:field="*{nom}" id="Nom" placeholder="Votre Nom" name="nom" required />
+      <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+      <label for="mdp">
+        <strong>Mot de passe</strong>
+      </label>
+      <input type="password" th:field="*{mdp}" id="mdp" placeholder="Votre Mot de passe" name="mdp" required />
+      <span th:if="${#fields.hasErrors('mdp')}" th:errors="*{mdp}"></span>
+      <button type="submit" class="btn" onclick="loginForm()">Connecter</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
