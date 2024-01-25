@@ -1,0 +1,40 @@
+package com.meteo.projet_meteo.service;
+import com.meteo.projet_meteo.exceptions.UserNotFoundException;
+import com.meteo.projet_meteo.model.Users;
+import com.meteo.projet_meteo.output.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+
+@Service
+public class UserService  {
+    IUserRepository userRepository;
+
+    @Autowired
+    public void setUserRepository(IUserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public Users addUser(Users users){
+        return userRepository.save(users);
+    }
+
+    public Users getById(int userId) throws UserNotFoundException {
+        return userRepository
+                .findById(userId)
+                .orElseThrow(()-> new UserNotFoundException("invalid id"));
+    }
+
+    public Users getByName(String name) throws UserNotFoundException {
+        return userRepository
+                .findByName(name)
+                .orElseThrow(()-> new UserNotFoundException("invalid name"));
+    }
+
+    public List<Users> getAll(){
+        return (List<Users>) userRepository.findAll();
+    }
+
+}

@@ -1,4 +1,4 @@
-package com.meteo.exceptions;
+package com.meteo.projet_meteo.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 

@@ -1,22 +1,22 @@
-package com.meteo.model;
+package com.meteo.projet_meteo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Users {
     private String name;
     @Id
     @GeneratedValue
     private int id;
     private String password;
 
-    public User(){
+    public Users(){
         super();
     }
 
-    public User(String name,String password){
+    public Users(String name, String password){
         super();
         this.name = name;
         this.password = password;
