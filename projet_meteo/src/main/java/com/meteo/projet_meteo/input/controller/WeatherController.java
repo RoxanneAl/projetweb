@@ -6,7 +6,7 @@ import com.meteo.projet_meteo.service.CityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+/*
 @Controller
 public class WeatherController {
     private CityService villesService;
@@ -23,3 +23,6 @@ public class WeatherController {
         return "index";
     }
 }
+
+
+ */

@@ -20,4 +20,5 @@ public class BeanConfig {
     public HttpClient httpClient(){
         return HttpClient.newHttpClient();
     }
+
 }
