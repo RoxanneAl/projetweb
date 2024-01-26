@@ -12,95 +12,90 @@ var markersData = [
                      lng: 2.3522,
                       title: 'Paris',
                        temperature: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-                        windSpeed: 5,
-                         humidity: 75
+                        windSpeed:  [5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30],
+                         humidity:  [65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90]
               },
              {lat: 51.5074,
               lng: -0.1278,
                title: 'Londres',
                 temperature: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
-                 windSpeed: 7,
-                  humidity: 80
+                 windSpeed:  [5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30],
+                  humidity:  [65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90]
               },
                     // Ajoutez d'autres données de marqueurs ici
     ];
 
 let map;
-function showWeatherInfo(marker, data) {
-    var contentString = `
-        <h3>${data.title}</h3>
-        <div id="content" style="width: 300px; height: 150px;">
-            <div style="float: left; width: 50px;">
-                <img src="soleil.png" alt="Soleil" style="width: 50px; height: 50px;">
+
+    
+    function showWeatherInfo(marker, data) {
+        var contentString = `
+            <h3>${data.title}</h3>
+            <div id="content" style="width: 300px; height: 150px;">
+                <div style="float: left; width: 50px;">
+                    <img src="soleil.png" alt="Soleil" style="width: 50px; height: 50px;">
+                </div>
+                <div style="float: left; width: 200px;">
+                    <canvas id="weatherChart" width="200" height="150"></canvas>
+                </div>
+                <div style="float: left; width: 50px;">
+                    <p>Temp: ${data.temperature}°C</p>
+                    <p>Wind: ${data.windSpeed} km/h</p>
+                    <p>Humidity: ${data.humidity}%</p>
+                </div>
             </div>
-            <div style="float: left; width: 200px;">
-                <canvas id="weatherChart" width="200" height="150"></canvas>
-            </div>
-            <div style="float: left; width: 50px;">
-                <p>Temp: ${data.temperature}°C</p>
-                <p>Wind: ${data.windSpeed} km/h</p>
-                <p>Humidity: ${data.humidity}%</p>
-            </div>
-        </div>
-    `
+        `
 
-
-    /*'<div id="content">'+
-        '<h1 id="firstHeading" class="firstHeading">'+ data.title +'</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Température:</b> ' + data.temperature + '°C</p>'+
-        '<p><b>Vitesse du vent:</b> ' + data.windSpeed + ' km/h</p>'+
-        '<p><b>Humidité:</b> ' + data.humidity + '%</p>'+
-        '</div>'+
-        '</div>';*/
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    infowindow.open(map, marker);
-
-    infowindow.addListener('domready', function() {
-            var ctx = document.getElementById('weatherChart').getContext('2d');
-            var weatherChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h',
-                    '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ], // Les heures devraient correspondre à vos données
-                    datasets: [{
-                        label: 'Température',
-                        data: data.temperature,
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 1
-                    }]
-                    datasets: [{
-                        label: 'Vitesse du vent (km/h)',
-                        data: data.windSpeed,
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 1
-                    }]
-                    datasets: [{
-                        label: 'Humidité (%)',
-                        data: data.humidity,
-                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
         });
-}
+
+        infowindow.open(map, marker);
+
+        infowindow.addListener('domready', function() {
+                var ctx = document.getElementById('weatherChart').getContext('2d');
+                if (window.weatherChart instanceof Chart) {
+                    window.weatherChart.destroy();
+                }
+                var weatherChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h',
+                        '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ], // Les heures devraient correspondre à vos données
+                        datasets: [{
+                            label: 'Température',
+                            data: data.temperature,
+                            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                            borderColor: 'rgba(255, 206, 86, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Vitesse du vent (km/h)',
+                            data: data.windSpeed,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Humidité (%)',
+                            data: data.humidity,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            });
+    }
 
 
 
