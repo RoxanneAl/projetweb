@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class UsersController {
 
     @Autowired
@@ -19,12 +19,7 @@ public class UsersController {
     public String home(Model model){
         return "index";
     }
-/*
-    @PostMapping("/user")
-    public Users createUser(@RequestBody Users user) {
-        return userRepository.save(user);
-    }
-    */
+
 
 
 }

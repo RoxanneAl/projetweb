@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Titre du document</title>
+  <title>Page de connexion</title>
 
   <script src="../../js/home_dy.js"></script>
   <link rel="stylesheet" href="../../css/home_style.css">
@@ -36,22 +36,25 @@
 </nav>
 <div class="login-popup">
   <div class="form-popup" id="popupForm">
-    <form action="#" method="post">
+    <form th:action="@{/login}" method="post">
       <h3>Veuillez vous connecter</h3>
       <label for="Nom">
         <strong>Nom</strong>
       </label>
-      <input type="text"   id="Nom" placeholder="Votre Nom" name="nom" required />
+      <input type="text"   id="username" placeholder="Votre Nom" name="Nom" required />
       <span></span>
       <label for="mdp">
         <strong>Mot de passe</strong>
       </label>
-      <input type="password"  id="mdp" placeholder="Votre Mot de passe" name="mdp" required />
+      <input type="password"  id="password" placeholder="Votre Mot de passe" name="mdp" required />
       <span ></span>
-      <button type="submit" class="btn" onclick="loginForm()">Connecter</button>
+      <button type="submit" class="btn" >Connecter</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
 </div>
+
+
+
 </body>
 </html>

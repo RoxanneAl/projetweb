@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Service
 public class UserService  {
+
+    @Autowired
     IUserRepository userRepository;
 
 
@@ -41,4 +43,13 @@ public class UserService  {
         return (List<Users>) userRepository.findAll();
     }
 
+    public boolean authenticate(String username, String password) {
+        Optional<Users> user = userRepository.findByName(username);
+
+        if (user.isPresent() && user.get().getPassword().equals(password)) {
+            return true; // Utilisateur authentifié avec succès
+        } else {
+            return false; // Échec de l'authentification
+        }
+    }
 }
