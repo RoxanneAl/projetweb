@@ -22,7 +22,6 @@ var markersData = [
                  windSpeed:  [5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30, 5 , 10, 15, 20, 25, 30],
                   humidity:  [65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90, 65, 70, 75, 80, 85, 90]
               },
-                    // Ajoutez d'autres données de marqueurs ici
     ];
 
 let map;
@@ -30,21 +29,16 @@ let map;
     
     function showWeatherInfo(marker, data) {
         var contentString = `
-            <h3>${data.title}</h3>
-            <div id="content" style="width: 300px; height: 150px;">
-                <div style="float: left; width: 50px;">
-                    <img src="soleil.png" alt="Soleil" style="width: 50px; height: 50px;">
+            <div id="weatherInfo" style="width: 250px; height: 200px;">
+                <div id="titleWithIcon" style="text-align: center;">
+                    <img src="soleil.png" alt="Soleil" style="vertical-align: middle; width: 20px; height: 20px;">
+                    <h6 style="display: inline-block; vertical-align: middle;">Paris</h6>
                 </div>
-                <div style="float: left; width: 200px;">
-                    <canvas id="weatherChart" width="200" height="150"></canvas>
-                </div>
-                <div style="float: left; width: 50px;">
-                    <p>Temp: ${data.temperature}°C</p>
-                    <p>Wind: ${data.windSpeed} km/h</p>
-                    <p>Humidity: ${data.humidity}%</p>
-                </div>
+                <canvas id="temperatureChart"></canvas>
+                <canvas id="windSpeedChart"></canvas>
+                <canvas id="humidityChart"></canvas>
             </div>
-        `
+        `;
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -52,31 +46,63 @@ let map;
 
         infowindow.open(map, marker);
 
-        infowindow.addListener('domready', function() {
-                var ctx = document.getElementById('weatherChart').getContext('2d');
-                if (window.weatherChart instanceof Chart) {
-                    window.weatherChart.destroy();
-                }
-                var weatherChart = new Chart(ctx, {
+        google.maps.event.addListener(infowindow, 'domready', function() {
+                var tempCtx = document.getElementById('temperatureChart').getContext('2d');
+                var temperatureChart = new Chart(tempCtx, {
                     type: 'bar',
                     data: {
                         labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h',
-                        '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ], // Les heures devraient correspondre à vos données
+                        '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ],
                         datasets: [{
                             label: 'Température',
                             data: data.temperature,
                             backgroundColor: 'rgba(255, 206, 86, 0.2)',
                             borderColor: 'rgba(255, 206, 86, 1)',
                             borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         },
-                        {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    }
+                });
+                var tempCtx = document.getElementById('windSpeedChart').getContext('2d');
+                var temperatureChart = new Chart(tempCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h',
+                        '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ],
+                        datasets: [{
                             label: 'Vitesse du vent (km/h)',
                             data: data.windSpeed,
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         },
-                        {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    }
+                });
+
+                var tempCtx = document.getElementById('humidityChart').getContext('2d');
+                var temperatureChart = new Chart(tempCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h',
+                        '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', ],
+                        datasets: [{
                             label: 'Humidité (%)',
                             data: data.humidity,
                             backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -91,7 +117,7 @@ let map;
                             }
                         },
                         responsive: true,
-                        maintainAspectRatio: false
+                        maintainAspectRatio: false,
                     }
                 });
             });
