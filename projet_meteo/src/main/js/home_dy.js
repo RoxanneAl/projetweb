@@ -32,7 +32,7 @@ let map;
             <div id="weatherInfo" style="width: 250px; height: 200px;">
                 <div id="titleWithIcon" style="text-align: center;">
                     <img src="soleil.png" alt="Soleil" style="vertical-align: middle; width: 20px; height: 20px;">
-                    <h6 style="display: inline-block; vertical-align: middle;">Paris</h6>
+                    <h6 style="display: inline-block; vertical-align: middle;">${data.title}</h6>
                 </div>
                 <canvas id="temperatureChart"></canvas>
                 <canvas id="windSpeedChart"></canvas>
