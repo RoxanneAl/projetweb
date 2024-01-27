@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class UserService  {
+
+    @Autowired
     IUserRepository userRepository;
+
 
     @Autowired
     public void setUserRepository(IUserRepository userRepository) {
@@ -20,7 +24,7 @@ public class UserService  {
     public Users addUser(Users users){
         return userRepository.save(users);
     }
-
+/*
     public Users getById(int userId) throws UserNotFoundException {
         return userRepository
                 .findById(userId)
@@ -32,9 +36,20 @@ public class UserService  {
                 .findByName(name)
                 .orElseThrow(()-> new UserNotFoundException("invalid name"));
     }
+    */
 
+    @Autowired
     public List<Users> getAll(){
         return (List<Users>) userRepository.findAll();
     }
 
+    public boolean authenticate(String username, String password) {
+        Optional<Users> user = userRepository.findByName(username);
+
+        if (user.isPresent() && user.get().getPassword().equals(password)) {
+            return true; // Utilisateur authentifié avec succès
+        } else {
+            return false; // Échec de l'authentification
+        }
+    }
 }
