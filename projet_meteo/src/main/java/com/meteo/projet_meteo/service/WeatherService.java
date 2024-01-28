@@ -11,6 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 public class WeatherService {
@@ -47,6 +48,10 @@ public class WeatherService {
                 .toUriString();
 
         return restTemplate.getForObject(url, WeatherApiResponse.class);
+    }
+
+    public List<WeatherApiResponse> findAll() {
+        return (List<WeatherApiResponse>) weatherRepository.findAll();
     }
 
 }

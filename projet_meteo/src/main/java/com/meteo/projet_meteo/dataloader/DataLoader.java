@@ -31,5 +31,6 @@ public class DataLoader implements CommandLineRunner {
             // Ici, enregistrez l'objet weather dans la base de données
             weatherService.saveWeather(weather);
         }
+        System.out.println(weatherService.findAll());
     }
 }

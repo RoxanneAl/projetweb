@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+import java.util.List;
 
+@Controller
+//@RequestMapping("/api_donnes")
 public class WeatherController {
 
     @Autowired
@@ -21,16 +23,33 @@ public class WeatherController {
     public WeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
-
-    /*@GetMapping("/home")
+    /*
+    @GetMapping("/home")
     public String getWeather(@RequestParam String city, Model model) {
         WeatherApiResponse weather = weatherService.getWeatherForToday(city);
         //model.addAttribute("weather", weather);
-        return "home.html";
-    } */
+        return "home";
+    }
+
+     */
+
 
     @GetMapping("/home")
     public String getWeather(Model model) {
+
         return "home";
     }
+
+
+
+    @GetMapping("/static/home_style.css")
+    public String getcss(Model model){
+        return "../static/home_style.css";
+    }
+
+    @GetMapping("static/home_dy.js")
+    public String getjs(Model model){
+        return "../static/home_dy.js";
+    }
+
 }
