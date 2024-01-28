@@ -1,5 +1,6 @@
 package com.meteo.projet_meteo.service;
 
+import com.meteo.projet_meteo.model.Users;
 import com.meteo.projet_meteo.model.WeatherApiResponse;
 import com.meteo.projet_meteo.output.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,18 @@ import java.time.format.DateTimeFormatter;
 @Service
 public class WeatherService {
 
+    @Autowired
     private final WeatherRepository weatherRepository;
     private final RestTemplate restTemplate;
 
     @Value("${weather.api.key}")
     private String apiKey;
+
+
+    public WeatherApiResponse saveWeather(WeatherApiResponse weather) {
+        return weatherRepository.save(weather);
+    }
+
 
     @Autowired // Utilisez @Autowired pour injecter RestTemplate si c'est un bean
     public WeatherService(WeatherRepository weatherRepository, RestTemplate restTemplate) {
@@ -40,4 +48,5 @@ public class WeatherService {
 
         return restTemplate.getForObject(url, WeatherApiResponse.class);
     }
+
 }
