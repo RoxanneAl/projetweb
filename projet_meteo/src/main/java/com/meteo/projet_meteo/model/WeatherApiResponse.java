@@ -1,10 +1,19 @@
 package com.meteo.projet_meteo.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Entity
+@Table(name = "weather")
+@EntityListeners(AuditingEntityListener.class)
 public class WeatherApiResponse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "weather_id")
+    private Integer id;
     private int queryCost;
     private double latitude;
     private double longitude;
@@ -13,8 +22,8 @@ public class WeatherApiResponse {
     private String timezone;
     private double tzoffset;
 
-    @JsonProperty("days")
-    private Day[] days;
+    @OneToMany(mappedBy = "weatherApiResponse", cascade = CascadeType.ALL)
+    private List<Day> days;
 
     public int getQueryCost() {
         return queryCost;
@@ -72,15 +81,29 @@ public class WeatherApiResponse {
         this.tzoffset = tzoffset;
     }
 
-    public Day[] getDays() {
+    public List<Day> getDays() {
         return days;
     }
 
-    public void setDays(Day[] days) {
+    public void setDays(List<Day> days) {
         this.days = days;
     }
 
+    @Entity
     public static class Day {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+
+        @ManyToOne
+        @JoinColumn(name = "weather_id")
+        private WeatherApiResponse weatherApiResponse;
+
+
+        @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<Hour> hours;
+
         private double temp;
         private double humidity;
         private double windspeed;
@@ -101,7 +124,15 @@ public class WeatherApiResponse {
             this.humidity = humidity;
         }
 
+        @Entity
         public static class Hour {
+            @ManyToOne
+            @JoinColumn(name = "day_id")
+            private Day day;
+
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long id;
             private double temp;
             private double humidity;
             private double windspeed;
