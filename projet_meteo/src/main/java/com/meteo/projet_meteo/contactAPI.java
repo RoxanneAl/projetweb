@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 
 public class contactAPI {
 
-    private static HttpClient httpClient = HttpClient.newHttpClient();
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
 
     public static String RequesttoAPI(String url){
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();

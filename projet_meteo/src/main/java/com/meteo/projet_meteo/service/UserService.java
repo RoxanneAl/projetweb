@@ -40,16 +40,13 @@ public class UserService  {
 
     @Autowired
     public List<Users> getAll(){
-        return (List<Users>) userRepository.findAll();
+        return userRepository.findAll();
     }
 
     public boolean authenticate(String username, String password) {
         Optional<Users> user = userRepository.findByName(username);
 
-        if (user.isPresent() && user.get().getPassword().equals(password)) {
-            return true; // Utilisateur authentifié avec succès
-        } else {
-            return false; // Échec de l'authentification
-        }
+        // Échec de l'authentification
+        return user.isPresent() && user.get().getPassword().equals(password); // Utilisateur authentifié avec succès
     }
 }

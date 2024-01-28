@@ -48,6 +48,15 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&region=FR&language=fr&callback=initMap">
 </script>
+
+<!-- connection avec dbb pour les donnée weather-->
+<script th:inline="javascript">
+        /*<![CDATA[*/
+        const weatherData = [[${weather}]];
+        /*]]>*/
+</script>
+
+
 <!-- Pop up -->
 <div class="login-popup">
   <div class="form-popup" id="popupForm">

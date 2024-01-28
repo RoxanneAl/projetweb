@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Optional;
 
 @SpringBootApplication
-public  class ProjetMeteoApplication implements CommandLineRunner {
+public  class ProjetMeteoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetMeteoApplication.class, args);
@@ -23,7 +23,7 @@ public  class ProjetMeteoApplication implements CommandLineRunner {
 
 	}
 
-
+/*
 	@Autowired
 	UserService userService;
 	@Autowired
@@ -47,5 +47,5 @@ public  class ProjetMeteoApplication implements CommandLineRunner {
 			}
 
 	}
-
+*/
 }

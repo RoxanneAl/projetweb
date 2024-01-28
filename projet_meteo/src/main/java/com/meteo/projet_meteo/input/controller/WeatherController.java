@@ -1,28 +1,25 @@
 package com.meteo.projet_meteo.input.controller;
 
-import com.meteo.projet_meteo.model.Weather;
-import com.meteo.projet_meteo.output.webservices.WeatherWebService;
-import com.meteo.projet_meteo.service.CityService;
+import ch.qos.logback.core.model.Model;
+import com.meteo.projet_meteo.model.WeatherApiResponse;
+import com.meteo.projet_meteo.service.WeatherService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-/*
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class WeatherController {
-    private CityService villesService;
-    private WeatherWebService weatherWebService;
-    public WeatherController(CityService villesService, WeatherWebService weatherWebService) {
-        this.villesService = villesService;
-        this.weatherWebService = weatherWebService;
+
+    private final WeatherService weatherService;
+
+    public WeatherController(WeatherService weatherService) {
+        this.weatherService = weatherService;
     }
 
-    @GetMapping("/")
-    public String index(Model model){
-        Weather weather = weatherWebService.getWeather();
-        model.addAttribute("towns", villesService.getTowns());
-        return "index";
+    @GetMapping("/home")
+    public String getWeather(@RequestParam String city, Model model) {
+        WeatherApiResponse weather = weatherService.getWeatherForToday(city);
+        //model.addAttribute("weather", weather);
+        return "home";
     }
 }
-
-
- */
