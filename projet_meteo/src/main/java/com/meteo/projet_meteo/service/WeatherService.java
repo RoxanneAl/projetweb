@@ -1,6 +1,5 @@
 package com.meteo.projet_meteo.service;
 
-import com.meteo.projet_meteo.model.Users;
 import com.meteo.projet_meteo.model.WeatherApiResponse;
 import com.meteo.projet_meteo.output.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;

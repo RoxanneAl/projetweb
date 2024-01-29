@@ -1,14 +1,14 @@
 package com.meteo.projet_meteo.input.controller;
 
-import ch.qos.logback.core.model.Model;
-import com.meteo.projet_meteo.model.WeatherApiResponse;
-import com.meteo.projet_meteo.output.repository.WeatherRepository;
+
+import com.meteo.projet_meteo.model.Users;
 import com.meteo.projet_meteo.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 
@@ -23,15 +23,7 @@ public class WeatherController {
     public WeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
-    /*
-    @GetMapping("/home")
-    public String getWeather(@RequestParam String city, Model model) {
-        WeatherApiResponse weather = weatherService.getWeatherForToday(city);
-        //model.addAttribute("weather", weather);
-        return "home";
-    }
 
-     */
 
 
     @GetMapping("/home")
@@ -40,8 +32,18 @@ public class WeatherController {
         return "home";
     }
 
+    @GetMapping
+    public String getAccueil(Model model){
+        model.addAttribute("user",new Users());
+        return "home";
+    }
 
 
+    @GetMapping("/donnees")
+    public String showWeatherData(Model model) {
+        model.addAttribute("data", weatherService.findAll());
+        return "weather_data"; // Nom du template Thymeleaf
+    }
     @GetMapping("/static/home_style.css")
     public String getcss(Model model){
         return "../static/home_style.css";

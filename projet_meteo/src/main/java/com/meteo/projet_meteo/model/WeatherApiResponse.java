@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.util.List;
 
 @Entity
-@Table(name = "weather")
+@Table(name = "weatherapiresponse")
 @EntityListeners(AuditingEntityListener.class)
 public class WeatherApiResponse {
 
@@ -163,3 +163,5 @@ public class WeatherApiResponse {
         }
     }
 }
+
+

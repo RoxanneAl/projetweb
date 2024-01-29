@@ -1,11 +1,13 @@
 package com.meteo.projet_meteo.dataloader;
-
 import com.meteo.projet_meteo.model.WeatherApiResponse;
 import com.meteo.projet_meteo.output.repository.WeatherRepository;
 import com.meteo.projet_meteo.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -20,6 +22,8 @@ public class DataLoader implements CommandLineRunner {
         this.weatherService = weatherService;
     }
 
+
+
     @Override
     public void run(String... args) throws Exception {
         // Liste des villes à ajouter
@@ -31,6 +35,6 @@ public class DataLoader implements CommandLineRunner {
             // Ici, enregistrez l'objet weather dans la base de données
             weatherService.saveWeather(weather);
         }
-        System.out.println(weatherService.findAll());
+        //System.out.println(weatherService.findAll());
     }
 }
