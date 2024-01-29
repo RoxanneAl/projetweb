@@ -42,4 +42,16 @@ Malo Beuchée : visuel du site, thymeleaf.
 **le bouton de la Pop UP:** est situé dans une bar de navigation.  
 **Ajouté une ville:** Dans la bar de navigation, il y a un onglet de recherche qui permet d'ajouter une ville. *le visuel est la mais la fonctionnalité est pour la v2*
 
-**page admin:** dans la page administrateur nous avons la visualisation des 
+**page admin:** dans la page administrateur nous avons la visualisation des donnée brute en json. *(pas finis + esaaie de le mettre sous forme de tableau)*
+
+### conception du support serveur
+
+
+
+## Problématiques
+
+Nous avons eu des problémes lier à la connexion entre le visuel du site et la base de donnée h2. 
+
+Un membre de l'équipe (Malo Beuchée) à eu une erreur lors du lancement de l'application. Cette nous a mis en difficutés pour créer les différentes classe ainsi que de les testé. 
+
+**Erreur:** Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Mauvais nom d'utilisateur ou mot de passe
