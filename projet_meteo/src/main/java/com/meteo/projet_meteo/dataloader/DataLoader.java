@@ -1,12 +1,15 @@
 package com.meteo.projet_meteo.dataloader;
 import com.meteo.projet_meteo.model.WeatherApiResponse;
+import com.meteo.projet_meteo.output.repository.IUserRepository;
 import com.meteo.projet_meteo.output.repository.WeatherRepository;
+import com.meteo.projet_meteo.service.UserService;
 import com.meteo.projet_meteo.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import java.util.ArrayList;
-import java.util.List;
+import com.meteo.projet_meteo.model.Users;
+
+import java.util.Optional;
 
 
 @Component
@@ -16,6 +19,10 @@ public class DataLoader implements CommandLineRunner {
     private final WeatherService weatherService;
     @Autowired
     private WeatherRepository weatherRepository;
+    @Autowired
+    UserService userService;
+    @Autowired
+    IUserRepository userRepository;
 
     @Autowired
     public DataLoader(WeatherService weatherService) {
@@ -36,5 +43,18 @@ public class DataLoader implements CommandLineRunner {
             weatherService.saveWeather(weather);
         }
         //System.out.println(weatherService.findAll());
+
+        // Vérifie si l'utilisateur admin existe déjà
+        Optional<Users> adminOpt = userRepository.findByName("admin");
+
+        if (adminOpt.isEmpty()) {
+            // L'admin n'existe pas, donc on le crée
+            Users adminUser = new Users("admin", "admin");
+            userService.addUser(adminUser);
+            System.out.println("Admin user created.");
+        } else {
+            // L'admin existe déjà, pas besoin de le créer
+            System.out.println("Admin user already exists.");
+        }
     }
 }
