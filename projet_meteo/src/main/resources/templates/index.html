@@ -3,8 +3,8 @@
 <head>
   <title>Page de connexion</title>
 
-  <script src="../../js/home_dy.js"></script>
-  <link rel="stylesheet" href="../../css/home_style.css">
+  <script src="../static/home_dy.js"></script>
+  <link rel="stylesheet" href="../static/home_style.css">
 
   <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -34,26 +34,30 @@
     </form>
   </div>
 </nav>
+
+
+
+
 <div class="login-popup">
   <div class="form-popup" id="popupForm">
-    <form th:action="@{/login}" method="post">
+    <form action="#" th:action="@{/login}" th:object="${user}" method="post">
       <h3>Veuillez vous connecter</h3>
-      <label for="Nom">
+      <label for="name">
         <strong>Nom</strong>
       </label>
-      <input type="text"   id="username" placeholder="Votre Nom" name="Nom" required />
-      <span></span>
-      <label for="mdp">
+      <input type="text" th:field="*{name}" id="name" placeholder="Votre Nom" required />
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+      <label for="password">
         <strong>Mot de passe</strong>
       </label>
-      <input type="password"  id="password" placeholder="Votre Mot de passe" name="mdp" required />
-      <span ></span>
-      <button type="submit" class="btn" >Connecter</button>
+      <input type="password" th:field="*{password}" id="password" placeholder="Votre Mot de passe" required />
+      <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+      <button type="submit" class="btn">Connecter</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
+
   </div>
 </div>
-
 
 
 </body>

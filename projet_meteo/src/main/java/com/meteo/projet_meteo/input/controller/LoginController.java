@@ -1,8 +1,11 @@
+package com.meteo.projet_meteo.input.controller;
+
+import com.meteo.projet_meteo.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.meteo.projet_meteo.service.UserService;
 
@@ -13,21 +16,24 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-
-    @GetMapping("/login")
-    public String home(Model model){
-        return "index";
-    }
-
+/*
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        boolean isAuthenticated = userService.authenticate(username, password);
-
-        if (isAuthenticated) {
-            return "redirect:/admin_page"; // Redirige vers une page de tableau de bord si authentifié
-        } else {
-            return "redirect:/?error"; // Redirige vers le formulaire de connexion avec un message d'erreur
+    public String login(@ModelAttribute("user") Users user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "index"; // Nom de la vue en cas d'erreur
         }
+        boolean isAuthenticated = userService.authenticate(user.getName(), user.getPassword());
+        if (isAuthenticated) {
+            // Logic en cas de succès
+            return "redirect:/admin_page"; // Redirection en cas de succès
+        } else {
+            model.addAttribute("loginError", true);
+            return "index"; // Nom de la vue en cas d'échec
+        }
+
+
     }
+
+ */
 }

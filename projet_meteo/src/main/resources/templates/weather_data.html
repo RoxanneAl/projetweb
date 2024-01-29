@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Person List</title>
+</head>
+<body>
+<h2> Liste des données météo</h2>
+<table>
+  <tr>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Adresse</th>
+    <th>Temperature</th>
+  </tr>
+  <tr th:each="data : ${data}">
+    <td th:text="${data.latitude}">Latitude</td>
+    <td th:text="${data.longitude}">Longitude</td>
+    <td th:text="${data.resolvedAddress}">Adresse</td>
+    <td th:text="${data.}">Temperature</td>
+  </tr>
+</table>
+</body>
+</html>
