@@ -24,7 +24,9 @@ public class WeatherService {
 
 
     public WeatherApiResponse saveWeather(WeatherApiResponse weather) {
-        return weatherRepository.save(weather);
+        if (isDuplicateWeatherEntry(weather.getResolvedAddress(), weather.getAddress())) {
+            throw new IllegalStateException("Un enregistrement météo pour cette date et ce lieu existe déjà.");
+        }return weatherRepository.save(weather);
     }
 
 
@@ -32,6 +34,10 @@ public class WeatherService {
     public WeatherService(WeatherRepository weatherRepository, RestTemplate restTemplate) {
         this.weatherRepository = weatherRepository;
         this.restTemplate = restTemplate;
+    }
+
+    public boolean isDuplicateWeatherEntry(String date, String location) {
+        return weatherRepository.findByDateAndLocation(date, location).isPresent();
     }
 
     public WeatherApiResponse getWeatherForToday(String location) {
